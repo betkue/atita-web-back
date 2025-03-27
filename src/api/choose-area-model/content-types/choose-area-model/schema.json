@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "choose_area_models",
+  "info": {
+    "singularName": "choose-area-model",
+    "pluralName": "choose-area-models",
+    "displayName": "chooseAreaModel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text1": {
+      "type": "string",
+      "required": false
+    },
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "title1_ex": {
+      "type": "string",
+      "required": true
+    },
+    "text2": {
+      "type": "text",
+      "required": true
+    },
+    "imageUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

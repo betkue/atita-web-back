@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "rent_models",
+  "info": {
+    "singularName": "rent-model",
+    "pluralName": "rent-models",
+    "displayName": "rentModel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text1": {
+      "type": "string",
+      "required": true
+    },
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "defaultListItem": {
+      "type": "string",
+      "required": true
+    },
+    "text2": {
+      "type": "string",
+      "required": true
+    },
+    "listItem1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem2": {
+      "type": "string",
+      "required": true
+    },
+    "listItem3": {
+      "type": "string",
+      "required": true
+    },
+    "listItem4": {
+      "type": "string",
+      "required": true
+    },
+    "listItem5": {
+      "type": "string",
+      "required": true
+    },
+    "listItem6": {
+      "type": "string",
+      "required": true
+    },
+    "textLink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Ignorer les dépendances
+node_modules/
+
+# Ignorer les fichiers de configuration sensibles
+.env
+.env.local
+.env.*.local
+
+# Ignorer les fichiers de build et logs
+.cache/
+build/
+dist/
+logs/
+strapi.log

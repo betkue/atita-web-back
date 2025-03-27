@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "faq_models",
+  "info": {
+    "singularName": "faq-model",
+    "pluralName": "faq-models",
+    "displayName": "faqModel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "title1_ex": {
+      "type": "string",
+      "required": true
+    },
+    "text2": {
+      "type": "text",
+      "required": true
+    },
+    "imageUrl": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "text1": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

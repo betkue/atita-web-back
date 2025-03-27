@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vehicles",
+  "info": {
+    "singularName": "vehicle",
+    "pluralName": "vehicles",
+    "displayName": "vehicle",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "passengers": {
+      "type": "integer",
+      "required": true
+    },
+    "luggageCapacity": {
+      "type": "integer",
+      "required": true
+    },
+    "airCondition": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "gps": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "pricePerDay": {
+      "type": "biginteger",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "imageUrl": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

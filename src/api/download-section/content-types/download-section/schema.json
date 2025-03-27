@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "download_sections",
+  "info": {
+    "singularName": "download-section",
+    "pluralName": "download-sections",
+    "displayName": "downloadSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "downloadLinks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::download-link.download-link"
+    },
+    "imageSrc": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

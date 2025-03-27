@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "restaurant_models",
+  "info": {
+    "singularName": "restaurant-model",
+    "pluralName": "restaurant-models",
+    "displayName": "RestaurantModel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "text1": {
+      "type": "string",
+      "required": true
+    },
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "defaultListItem": {
+      "type": "string",
+      "required": true
+    },
+    "listItem1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem2": {
+      "type": "string",
+      "required": true
+    },
+    "textLink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

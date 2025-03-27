@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_models",
+  "info": {
+    "singularName": "contact-model",
+    "pluralName": "contact-models",
+    "displayName": "contactModel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem1": {
+      "type": "string",
+      "required": true
+    },
+    "listitem2": {
+      "type": "string",
+      "required": true
+    },
+    "title2": {
+      "type": "string",
+      "required": true
+    },
+    "text1": {
+      "type": "string",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    },
+    "image1": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "image2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "counters",
+  "info": {
+    "singularName": "counter",
+    "pluralName": "counters",
+    "displayName": "counter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "icon": {
+      "type": "string",
+      "required": true
+    },
+    "count": {
+      "type": "biginteger",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

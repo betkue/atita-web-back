@@ -1,0 +1,42 @@
+{
+  "kind": "singleType",
+  "collectionName": "hotel_models",
+  "info": {
+    "singularName": "hotel-model",
+    "pluralName": "hotel-models",
+    "displayName": "hotelModel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "text1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem2": {
+      "type": "string",
+      "required": true
+    },
+    "listItem3": {
+      "type": "string",
+      "required": true
+    },
+    "reservationLink": {
+      "type": "string",
+      "required": true
+    },
+    "textCurrency": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
