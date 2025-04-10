@@ -44,12 +44,17 @@
       "target": "api::category.category"
     },
     "imageUrl": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "doors": {
+      "type": "integer",
+      "required": true,
+      "default": 4
     }
   }
 }
