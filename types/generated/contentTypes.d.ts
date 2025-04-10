@@ -388,7 +388,10 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     experience: Schema.Attribute.String & Schema.Attribute.Required;
-    experienceIcon: Schema.Attribute.String & Schema.Attribute.Required;
+    experienceIcon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
     imageSrc: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     listItems: Schema.Attribute.JSON & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -400,6 +403,37 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
+  collectionName: 'bookings';
+  info: {
+    displayName: 'Booking';
+    pluralName: 'bookings';
+    singularName: 'booking';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    duration: Schema.Attribute.Integer & Schema.Attribute.Required;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::booking.booking'
+    > &
+      Schema.Attribute.Private;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vehicle: Schema.Attribute.Relation<'manyToOne', 'api::vehicle.vehicle'>;
   };
 }
 
@@ -473,6 +507,7 @@ export interface ApiChooseAreaModelChooseAreaModel
 export interface ApiChooseItemChooseItem extends Struct.CollectionTypeSchema {
   collectionName: 'choose_items';
   info: {
+    description: '';
     displayName: 'chooseItem';
     pluralName: 'choose-items';
     singularName: 'choose-item';
@@ -486,7 +521,8 @@ export interface ApiChooseItemChooseItem extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'files' | 'images'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -540,7 +576,7 @@ export interface ApiContactModelContactModel extends Struct.SingleTypeSchema {
 export interface ApiContactContact extends Struct.CollectionTypeSchema {
   collectionName: 'contacts';
   info: {
-    displayName: 'contact';
+    displayName: 'Contact';
     pluralName: 'contacts';
     singularName: 'contact';
   };
@@ -551,7 +587,8 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -559,7 +596,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    text: Schema.Attribute.String;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -570,7 +607,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
 export interface ApiCounterCounter extends Struct.CollectionTypeSchema {
   collectionName: 'counters';
   info: {
-    displayName: 'counter';
+    displayName: 'Counter';
     pluralName: 'counters';
     singularName: 'counter';
   };
@@ -578,11 +615,12 @@ export interface ApiCounterCounter extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    count: Schema.Attribute.BigInteger & Schema.Attribute.Required;
+    count: Schema.Attribute.Integer & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    icon: Schema.Attribute.String & Schema.Attribute.Required;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -725,73 +763,6 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiHotelModelHotelModel extends Struct.SingleTypeSchema {
-  collectionName: 'hotel_models';
-  info: {
-    displayName: 'hotelModel';
-    pluralName: 'hotel-models';
-    singularName: 'hotel-model';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    listItem1: Schema.Attribute.String & Schema.Attribute.Required;
-    listItem2: Schema.Attribute.String & Schema.Attribute.Required;
-    listItem3: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::hotel-model.hotel-model'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    reservationLink: Schema.Attribute.String & Schema.Attribute.Required;
-    text1: Schema.Attribute.String & Schema.Attribute.Required;
-    textCurrency: Schema.Attribute.String & Schema.Attribute.Required;
-    title1: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
-  collectionName: 'hotels';
-  info: {
-    description: '';
-    displayName: 'hotel';
-    pluralName: 'hotels';
-    singularName: 'hotel';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    imageSrc: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'> &
-      Schema.Attribute.Private;
-    location: Schema.Attribute.String & Schema.Attribute.Required;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    pricePerNight: Schema.Attribute.BigInteger & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    stars: Schema.Attribute.Integer & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiRentModelRentModel extends Struct.SingleTypeSchema {
   collectionName: 'rent_models';
   info: {
@@ -916,7 +887,8 @@ export interface ApiServiceService extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    iconUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    iconUrl: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     imageUrl: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
       Schema.Attribute.Required;
     link: Schema.Attribute.String & Schema.Attribute.Required;
@@ -966,6 +938,71 @@ export interface ApiSliderSlider extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTourismModelTourismModel extends Struct.SingleTypeSchema {
+  collectionName: 'tourism_models';
+  info: {
+    description: '';
+    displayName: 'TourismModel';
+    pluralName: 'tourism-models';
+    singularName: 'tourism-model';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    listItem1: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tourism-model.tourism-model'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    text1: Schema.Attribute.String & Schema.Attribute.Required;
+    title1: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTourismeTourisme extends Struct.CollectionTypeSchema {
+  collectionName: 'tourismes';
+  info: {
+    description: '';
+    displayName: 'Tourisme';
+    pluralName: 'tourismes';
+    singularName: 'tourisme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    imageSrc: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tourisme.tourisme'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seeMoreLink: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiVehicleVehicle extends Struct.CollectionTypeSchema {
   collectionName: 'vehicles';
   info: {
@@ -981,6 +1018,7 @@ export interface ApiVehicleVehicle extends Struct.CollectionTypeSchema {
     airCondition: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
+    bookings: Schema.Attribute.Relation<'oneToMany', 'api::booking.booking'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1518,6 +1556,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::booking.booking': ApiBookingBooking;
       'api::category.category': ApiCategoryCategory;
       'api::choose-area-model.choose-area-model': ApiChooseAreaModelChooseAreaModel;
       'api::choose-item.choose-item': ApiChooseItemChooseItem;
@@ -1528,13 +1567,13 @@ declare module '@strapi/strapi' {
       'api::download-section.download-section': ApiDownloadSectionDownloadSection;
       'api::faq-model.faq-model': ApiFaqModelFaqModel;
       'api::faq.faq': ApiFaqFaq;
-      'api::hotel-model.hotel-model': ApiHotelModelHotelModel;
-      'api::hotel.hotel': ApiHotelHotel;
       'api::rent-model.rent-model': ApiRentModelRentModel;
       'api::restaurant-model.restaurant-model': ApiRestaurantModelRestaurantModel;
       'api::restaurant.restaurant': ApiRestaurantRestaurant;
       'api::service.service': ApiServiceService;
       'api::slider.slider': ApiSliderSlider;
+      'api::tourism-model.tourism-model': ApiTourismModelTourismModel;
+      'api::tourisme.tourisme': ApiTourismeTourisme;
       'api::vehicle.vehicle': ApiVehicleVehicle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

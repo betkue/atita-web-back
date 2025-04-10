@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "tourism_models",
+  "info": {
+    "singularName": "tourism-model",
+    "pluralName": "tourism-models",
+    "displayName": "TourismModel",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title1": {
+      "type": "string",
+      "required": true
+    },
+    "text1": {
+      "type": "string",
+      "required": true
+    },
+    "listItem1": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

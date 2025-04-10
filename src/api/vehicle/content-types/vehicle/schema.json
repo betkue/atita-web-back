@@ -50,6 +50,12 @@
       "type": "media",
       "multiple": false,
       "required": true
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "vehicle"
     }
   }
 }

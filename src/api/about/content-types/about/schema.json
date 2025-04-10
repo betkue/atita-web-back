@@ -15,10 +15,6 @@
       "type": "string",
       "required": true
     },
-    "experienceIcon": {
-      "type": "string",
-      "required": true
-    },
     "title": {
       "type": "string",
       "required": true
@@ -44,8 +40,19 @@
       "required": true
     },
     "imageSrc": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
+      ]
+    },
+    "experienceIcon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
       ],
       "type": "media",
       "multiple": false,

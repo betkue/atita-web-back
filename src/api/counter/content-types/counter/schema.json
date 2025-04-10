@@ -4,22 +4,29 @@
   "info": {
     "singularName": "counter",
     "pluralName": "counters",
-    "displayName": "counter"
+    "displayName": "Counter"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "icon": {
-      "type": "string",
-      "required": true
-    },
     "count": {
-      "type": "biginteger",
-      "required": true
+      "required": true,
+      "type": "integer"
     },
     "label": {
       "type": "string",
+      "required": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "choose-item",
     "pluralName": "choose-items",
-    "displayName": "chooseItem"
+    "displayName": "chooseItem",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,16 +15,21 @@
       "type": "string",
       "required": true
     },
-    "icon": {
-      "type": "string",
-      "required": true
-    },
     "title": {
       "type": "string",
       "required": true
     },
     "description": {
       "type": "text",
+      "required": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

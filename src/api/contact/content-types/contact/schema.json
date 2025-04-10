@@ -4,21 +4,28 @@
   "info": {
     "singularName": "contact",
     "pluralName": "contacts",
-    "displayName": "contact"
+    "displayName": "Contact"
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "icon": {
-      "type": "string"
-    },
     "title": {
       "type": "string",
       "required": true
     },
     "text": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

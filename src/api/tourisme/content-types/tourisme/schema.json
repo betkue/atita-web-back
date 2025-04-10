@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tourismes",
+  "info": {
+    "singularName": "tourisme",
+    "pluralName": "tourismes",
+    "displayName": "Tourisme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "imageSrc": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "seeMoreLink": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
