@@ -406,37 +406,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
-  collectionName: 'bookings';
-  info: {
-    displayName: 'Booking';
-    pluralName: 'bookings';
-    singularName: 'booking';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    duration: Schema.Attribute.Integer & Schema.Attribute.Required;
-    email: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::booking.booking'
-    > &
-      Schema.Attribute.Private;
-    phone: Schema.Attribute.String & Schema.Attribute.Required;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    vehicle: Schema.Attribute.Relation<'manyToOne', 'api::vehicle.vehicle'>;
-  };
-}
-
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -1018,7 +987,6 @@ export interface ApiVehicleVehicle extends Struct.CollectionTypeSchema {
     airCondition: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<true>;
-    bookings: Schema.Attribute.Relation<'oneToMany', 'api::booking.booking'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1556,7 +1524,6 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
-      'api::booking.booking': ApiBookingBooking;
       'api::category.category': ApiCategoryCategory;
       'api::choose-area-model.choose-area-model': ApiChooseAreaModelChooseAreaModel;
       'api::choose-item.choose-item': ApiChooseItemChooseItem;
